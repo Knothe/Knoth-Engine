@@ -36,8 +36,9 @@ namespace Knoth {
 		inline bool IsInCategory(EventCategory category) {
 			return GetCategoryFlags() & category;
 		} 
+		inline bool IsHandled() { return _Handled; }
 	protected:
-		bool m_Handled = false;
+		bool _Handled = false;
 	};
 
 	

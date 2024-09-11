@@ -7,6 +7,7 @@
 #include "Engine/Event/KeyEvent.h"
 #include "Engine/Event/MouseEvent.h"
 
+#include <glad/glad.h>
 
 namespace Knoth {
 	static bool _GLFWInitialized = false;
@@ -60,6 +61,10 @@ namespace Knoth {
 
 		_Window = glfwCreateWindow((int)props.Width, (int)props.Height, _Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		KNOTH_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(_Window, &_Data);
 		SetVSync(true);
 

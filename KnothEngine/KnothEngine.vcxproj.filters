@@ -36,6 +36,12 @@
     <ClInclude Include="src\Engine\Event\MouseEvent.h">
       <Filter>Engine\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Layer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\LayerStack.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Log.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -47,15 +53,27 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\knothpch.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Engine\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Layer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\LayerStack.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\Log.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\knothpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Engine\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

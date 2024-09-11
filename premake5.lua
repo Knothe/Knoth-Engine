@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "KnothEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "KnothEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "KnothEngine/vendor/ImGui"
 
 include "KnothEngine/vendor/GLFW"
+include "KnothEngine/vendor/Glad"
+include "KnothEngine/vendor/ImGui"
 
 project "KnothEngine"
 	location "KnothEngine"
@@ -34,11 +38,16 @@ project "KnothEngine"
 
 	includedirs{
 		"%{prj.name}/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.ImGui}/backends",
+		"%{IncludeDir.Glad}"
 	}
 
 	links{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -50,7 +59,8 @@ project "KnothEngine"
 
 		defines{
 			"KNOTH_PLATFORM_WINDOWS",
-			"KNOTH_BUILD_DLL"
+			"KNOTH_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands{
