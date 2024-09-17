@@ -29,6 +29,8 @@ namespace Knoth {
 		bool _running = true;
 		LayerStack _LayerStack;
 		static Application* Instance;
+		unsigned int _VertexArray, _VertexBuffer, _IndexBuffer;
+
 	};
 
 	Application* CreateApplication();
