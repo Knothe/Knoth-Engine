@@ -13,7 +13,7 @@ namespace Knoth {
 	static bool _GLFWInitialized = false;
 
 	static void GLFWErrorCallback(int error, const char* description) {
-		KNOTH_CORE_ASSERT("GLFW Error ({0}): {1}", error, description);
+		KNOTH_ASSERT("GLFW Error ({0}): {1}", error, description);
 	}
 
 	Window* Window::Create(const WindowProps& props) {
@@ -50,11 +50,11 @@ namespace Knoth {
 		_Data.Width = props.Width;
 		_Data.Height = props.Height;
 
-		LOG("Createing window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		KNOTH_LOG("Createing window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!_GLFWInitialized) {
 			int success = glfwInit();
-			KNOTH_CORE_ASSERT(success, "Could not initialize GLFW");
+			KNOTH_ASSERT(success, "Could not initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 			_GLFWInitialized = true;
 		}
@@ -63,7 +63,7 @@ namespace Knoth {
 		glfwMakeContextCurrent(_Window);
 
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		KNOTH_CORE_ASSERT(status, "Failed to initialize Glad!");
+		KNOTH_ASSERT(status, "Failed to initialize Glad!");
 
 		glfwSetWindowUserPointer(_Window, &_Data);
 		SetVSync(true);

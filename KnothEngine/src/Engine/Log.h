@@ -43,10 +43,9 @@ namespace Knoth {
 #define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
 #define LOCAL_LOG(...) log->Print(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
 
-#define LOG(...) Knoth::Log::GetLogger()->Print_Log(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
-#define INFO(...) Knoth::Log::GetLogger()->Print_Info(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
-#define ERROR(...) Knoth::Log::GetLogger()->Print_Error(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
-
+#define KNOTH_LOG(...) Knoth::Log::GetLogger()->Print_Log(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
+#define KNOTH_INFO(...) Knoth::Log::GetLogger()->Print_Info(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
+#define KNOTH_ERROR(...) Knoth::Log::GetLogger()->Print_Error(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
 
 #define PRINT_LOG(...) log->Print_Log(std::format(__VA_ARGS__), __FILENAME__, __LINE__);
 #define PRINT_INFO(...) log->Print_Info(std::format(__VA_ARGS__), __FILENAME__, __LINE__);

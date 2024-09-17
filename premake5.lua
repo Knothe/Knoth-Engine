@@ -96,7 +96,8 @@ project "Sandbox"
 	}
 
 	includedirs{
-		"KnothEngine/src"
+		"KnothEngine/src",
+		"KnothEngine/vendor"
 	}
 
 	links {

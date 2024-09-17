@@ -10,6 +10,8 @@
 #include "Engine/Event/KeyEvent.h"
 #include "Engine/Event/MouseEvent.h"
 
+#include "Engine/ImGui/ImGuiLayer.h"
+
 // Entry Point
 //--------
 #include "Engine/EntryPoint.h"

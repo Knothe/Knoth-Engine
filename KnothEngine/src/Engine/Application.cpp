@@ -9,10 +9,12 @@ namespace Knoth {
 	Application* Application::Instance = nullptr;
 
 	Application::Application() {
-		KNOTH_CORE_ASSERT(!Instance, "Application already exists!");
+		KNOTH_ASSERT(!Instance, "Application already exists!");
 		Instance = this;
 		_Window = std::unique_ptr<Window>(Window::Create());
 		_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(_ImGuiLayer);
 	}
 
 	Application::~Application() {
@@ -25,6 +27,12 @@ namespace Knoth {
 			glClear(GL_COLOR_BUFFER_BIT);
 			for (Layer* layer : _LayerStack)
 				layer->OnUpdate();
+
+			_ImGuiLayer->Begin();
+			for (Layer* layer : _LayerStack)
+				layer->OnImGuiRender();
+			_ImGuiLayer->End();
+
 			_Window->OnUpdate();
 		}
 	}
@@ -33,7 +41,7 @@ namespace Knoth {
 		if (e.GetEventType() == EventType::WindowClose) {
 			OnWindowClosed(*(WindowCloseEvent*)&e);
 		}
-		//LOG("{0}", e.ToString());
+		KNOTH_LOG("{0}", e.ToString());
 
 		for (auto it = _LayerStack.end(); it != _LayerStack.begin();) {
 			int i;

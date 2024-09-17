@@ -7,6 +7,9 @@
     <Filter Include="Engine\Event">
       <UniqueIdentifier>{6C812495-58E4-B339-016A-ECEFEDAB7FBC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\ImGui">
+      <UniqueIdentifier>{45756795-31D8-F639-DA5D-2FF0C69FC2BC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -36,6 +39,9 @@
     <ClInclude Include="src\Engine\Event\MouseEvent.h">
       <Filter>Engine\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\ImGui\ImGuiLayer.h">
+      <Filter>Engine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Layer.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -53,12 +59,16 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\knothpch.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Engine\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\ImGui\ImGuiBuild.cpp">
+      <Filter>Engine\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\ImGui\ImGuiLayer.cpp">
+      <Filter>Engine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Layer.cpp">
       <Filter>Engine</Filter>
@@ -73,7 +83,5 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\knothpch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
-    <ClCompile Include="src\Engine\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

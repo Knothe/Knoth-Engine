@@ -10,12 +10,16 @@
 	#error Only support windows
 #endif
 
-#ifdef GLE_ENABLE_ASSERTS
-	#define KNOTH_ASSERT(x, ...) {if(!(x)){GLE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
-	#define KNOTH_CORE_ASSERT(x, ...) {if(!(x)){GLE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS_); __debugbreak();}}
+#ifdef KNOTH_DEBUG
+	#define KNOTH_ENABLE_ASSERTS
+#endif
+
+#ifdef KNOTH_ENABLE_ASSERTS
+	#define KNOTH_ASSERT(x, ...) {if(!(x)){KNOTH_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
 #else
 	#define KNOTH_ASSERT(x, ...)
-	#define KNOTH_CORE_ASSERT(x, ...)
 #endif
 
 #define BIT(x) (1 << x)
+
+#define KNOTH_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

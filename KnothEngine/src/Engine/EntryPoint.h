@@ -9,9 +9,6 @@ int main(int argc, char** arcv) {
 	//Knoth::Log* log = new Knoth::Log("Aplication");
 	Knoth::KeyPressedEvent e(100, 0);
 	auto app = Knoth::CreateApplication();
-
-	LOG("Hello {0}!\n", e.ToString())
-	LOG("Some text")
 	app->Run();
 	delete app;
 } 

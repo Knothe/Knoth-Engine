@@ -20,6 +20,6 @@ namespace Knoth {
 
 	private:
 		std::vector<Layer*> _Layers;
-		std::vector<Layer*>::iterator _LayerInsert;
+		unsigned int _LayerInsertIndex;
    	};
 }

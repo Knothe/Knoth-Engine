@@ -4,6 +4,7 @@
 #include "Event/Event.h"
 #include "Engine/Window.h"
 #include "Engine/LayerStack.h"
+#include "Engine/ImGui/ImGuiLayer.h"
 
 namespace Knoth {
 	class KNOTH_API Application {
@@ -24,6 +25,7 @@ namespace Knoth {
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		std::unique_ptr<Knoth::Window> _Window;
+		ImGuiLayer* _ImGuiLayer;
 		bool _running = true;
 		LayerStack _LayerStack;
 		static Application* Instance;
