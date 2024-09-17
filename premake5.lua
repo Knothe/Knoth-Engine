@@ -54,7 +54,7 @@ project "KnothEngine"
 	filter "system:windows"
 		cppdialect "C++20"
 		staticruntime "off"
-		runtime "Release"
+		runtime "Debug"
 		systemversion "latest"
 
 		defines{
