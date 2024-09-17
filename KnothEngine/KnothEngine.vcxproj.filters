@@ -10,6 +10,9 @@
     <Filter Include="Engine\ImGui">
       <UniqueIdentifier>{45756795-31D8-F639-DA5D-2FF0C69FC2BC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Input">
+      <UniqueIdentifier>{1AB06895-0613-F839-AF98-30F09BDAC3BC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -45,6 +48,12 @@
     <ClInclude Include="src\Engine\Input.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Input\KeyCodes.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Input\MouseButtonCodes.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Layer.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -58,13 +67,13 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\KnothEngine.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\knothpch.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Engine\Input\KeyCodes.h" />
-    <ClInclude Include="src\Engine\Input\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp">
@@ -85,10 +94,12 @@
     <ClCompile Include="src\Engine\Log.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\knothpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

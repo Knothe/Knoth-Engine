@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "KnothEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "KnothEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "KnothEngine/vendor/ImGui"
+IncludeDir["glm"] = "KnothEngine/vendor/glm"
 
 include "KnothEngine/vendor/GLFW"
 include "KnothEngine/vendor/Glad"
@@ -41,7 +42,8 @@ project "KnothEngine"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.ImGui}/backends",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}"
 	}
 
 	links{
@@ -97,7 +99,8 @@ project "Sandbox"
 
 	includedirs{
 		"KnothEngine/src",
-		"KnothEngine/vendor"
+		"KnothEngine/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
