@@ -102,8 +102,3 @@ Para facilitar la lectura a lo largo de todo el engine, declaramos nuestros prop
 - ImGui
 - GLFW
 - Glad
-
-  
-
-
-Knoth engine diagrams and deep dive: [Docs](https://drive.google.com/drive/folders/1nTWG98T_bUZ88TPPPmSrVwDprpB4N4YM?usp=sharing)
