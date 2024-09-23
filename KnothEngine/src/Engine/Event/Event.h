@@ -27,6 +27,9 @@ namespace Knoth {
 #define EVENT_CLASS_CATEGORY(category)	virtual int GetCategoryFlags() const override { return category; }
 
 	class KNOTH_API Event {
+		template<typename T>
+		using EventFn = std::function<bool(T&)>;
+
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
@@ -37,8 +40,19 @@ namespace Knoth {
 			return GetCategoryFlags() & category;
 		} 
 		inline bool IsHandled() { return _Handled; }
+
+		template<typename T>
+		bool Dispatch(EventFn<T> func) {
+			if (GetEventType() == T::GetStaticType()) {
+				_Handled = func(*(T*)(this));
+				return true;
+			}
+			return false;
+		}
+
 	protected:
 		bool _Handled = false;
+		
 	};
 
 	
