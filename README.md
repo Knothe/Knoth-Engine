@@ -44,7 +44,7 @@ Esta clase se encarga de encapsular y separar las diversas implementaciones espe
 - bool IsVSync()
 - virtual void* GetNativeWindow()
 
-Y finalmente está definida la función estática "Create", la cual se puede impilementar en el cpp donde se implementa la versión específica de cada plataforma. Actualmente solo está implementada la versión de windows en "Platform/Windows/WindowsWindow", la cual utiliza glad para su funcionamiento.
+Y finalmente está definida la función estática "Create", la cual se puede implementar en el cpp donde se implementa la versión específica de cada plataforma. Actualmente solo está implementada la versión de windows en "Platform/Windows/WindowsWindow", la cual utiliza glad para su funcionamiento.
 
 ### Layers
 
