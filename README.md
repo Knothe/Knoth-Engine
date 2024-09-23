@@ -95,6 +95,9 @@ En Windows, como se mencionó anteriormente, el engine se apoya de GLFW para rec
 - std::string ToString()
 - bool IsInCategory(EventCategory)
 - bool IsHandled()
+- bool Dispatch<T>(EventFn<T>)
+
+La forma de manejar el evento, es a través de la función template "Dispatch", donde se indica el tipo de evento que se espera, y como parámetro se pasa un bindeo a una función que pide como input T& y retorna bool, ya de forma interna se compara, llama a la funcion, y cambia el valor de _Handled.
 
 Para facilitar la lectura a lo largo de todo el engine, declaramos nuestros propios macros con definiciones específicas de los inputs, de base se usan los números implementados por GLFW, y en caso de ser necesario, se deberán implementar adaptaciones para otros sistemas, estas definiciones se encuentran en "Engine/Input".
 
