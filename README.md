@@ -78,6 +78,8 @@ Lo más importante del logger es que tiene la posibilidad de ser usado en su ver
   - PRINT_LOG(...)
   - PRINT_INFO(...)
   - PRINT_ERROR(...)
+
+Para poder utilizar las funciones locales, es necesario que la clase tenga una instancia de la clase Logger ya inicializada, esta instancia debe ser un apuntador de nombre "log"
  
 Todos los prints utilizan la función de ["std::format"](https://en.cppreference.com/w/cpp/utility/format/format), por que llamar a cualquiera de las macros debe ser tratado como si se usara dicha función
 
