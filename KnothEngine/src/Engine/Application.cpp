@@ -69,12 +69,11 @@ namespace Knoth {
 
 	void Application::OnEvent(Event& e) {
 		e.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
-		KNOTH_LOG("{0}", e.ToString());
-
+		_ImGuiLayer->PreEvent(e);
 		for (auto it = _LayerStack.end(); it != _LayerStack.begin();) {
 			int i;
 			(*--it)->OnEvent(e);
-			if (e.IsHandled())
+			if (e.IsHandled()) 
 				break;
 		}
 	}

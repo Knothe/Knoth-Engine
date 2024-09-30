@@ -5,6 +5,9 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"
 
+#include "Engine/Event/KeyEvent.h"
+#include "Engine/Event/MouseEvent.h"
+
 #include "Engine/Application.h"
 
 // TEMPORARY
@@ -55,6 +58,15 @@ namespace Knoth {
 		ImGui::ShowDemoWindow(&show);
 	}
 
+	void ImGuiLayer::PreEvent(Event& e){
+		e.Dispatch<KeyPressedEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeKeyboardEvent));
+		e.Dispatch<KeyReleasedEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeKeyboardEvent));
+		e.Dispatch<MouseMovedEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeMouseEvent));
+		e.Dispatch<MouseScrolledEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeMouseEvent));
+		e.Dispatch<MouseButtonPressedEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeMouseEvent));
+		e.Dispatch<MouseButtonReleasedEvent>(KNOTH_BIND_EVENT_FN(ImGuiLayer::ConsumeMouseEvent));
+	}
+
 	void ImGuiLayer::Begin(){
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
@@ -75,5 +87,13 @@ namespace Knoth {
 			ImGui::RenderPlatformWindowsDefault();
 			glfwMakeContextCurrent(backup_current_context);
 		}
+	}
+
+	bool ImGuiLayer::ConsumeKeyboardEvent(Event& e){
+		return ImGui::GetIO().WantCaptureKeyboard;
+	}
+
+	bool ImGuiLayer::ConsumeMouseEvent(Event& e){
+		return ImGui::GetIO().WantCaptureMouse;
 	}
 }

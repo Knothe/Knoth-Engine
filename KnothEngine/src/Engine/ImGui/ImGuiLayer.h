@@ -12,10 +12,15 @@ namespace Knoth {
 		virtual void OnDetach() override;
 		virtual void OnImGuiRender() override;
 
+		void PreEvent(Event& e);
+
 		void Begin();
 		void End();
 
 	private:
+		bool ConsumeKeyboardEvent(Event& e);
+		bool ConsumeMouseEvent(Event& e);
+
 		float _Time = 0.0f;
 	};
 }

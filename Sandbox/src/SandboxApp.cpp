@@ -1,10 +1,14 @@
-#pragma once
+﻿#pragma once
 #include <KnothEngine.h>
 #include "ImGui/imgui.h"
 
 class ExampleLayer : public Knoth::Layer {
 public:
 	ExampleLayer() : Layer("Example"){}
+
+	virtual void OnEvent(Knoth::Event& e) override {
+		KNOTH_LOG("{0}", e.ToString());
+	}
 
 	virtual void OnImGuiRender() override {
 		ImGui::Begin("Test");
@@ -17,8 +21,6 @@ class Sandbox : public Knoth::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		//PushOverlay(new Knoth::ImGuiLayer());
-		
 	}
 
 	~Sandbox() {

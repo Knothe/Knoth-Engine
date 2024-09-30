@@ -30,7 +30,6 @@ namespace Knoth {
 		LayerStack _LayerStack;
 		static Application* Instance;
 		unsigned int _VertexArray, _VertexBuffer, _IndexBuffer;
-
 	};
 
 	Application* CreateApplication();
