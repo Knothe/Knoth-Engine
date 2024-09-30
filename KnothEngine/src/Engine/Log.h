@@ -1,5 +1,4 @@
 #pragma once
-#include "knothpch.h"
 #include "Core.h"
 
 // https://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170

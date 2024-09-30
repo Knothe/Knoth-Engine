@@ -6,6 +6,9 @@
 #include "Engine/LayerStack.h"
 #include "Engine/ImGui/ImGuiLayer.h"
 
+#include "Engine/Renderer/Shader.h"
+#include "Engine/Renderer/Buffer.h"
+#include "Engine/Renderer/VertexArray.h"
 namespace Knoth {
 	class KNOTH_API Application {
 	public:
@@ -29,7 +32,12 @@ namespace Knoth {
 		bool _running = true;
 		LayerStack _LayerStack;
 		static Application* Instance;
-		unsigned int _VertexArray, _VertexBuffer, _IndexBuffer;
+
+		std::shared_ptr<Shader> _Shader;
+		std::shared_ptr<VertexArray> _VertexArray;
+
+		std::shared_ptr<VertexArray> _SquareVA;
+		std::shared_ptr<Shader> _Shader2;
 	};
 
 	Application* CreateApplication();

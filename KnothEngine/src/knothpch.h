@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <memory>
 #include <utility>
@@ -18,3 +17,5 @@
 #ifdef KNOTH_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
+
+#include "Engine/Log.h"

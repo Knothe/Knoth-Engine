@@ -1,13 +1,12 @@
 #include "knothpch.h"
 #include "WindowsWindow.h"
-#include "Engine/Log.h"
 
 #include "Engine/Event/ApplicationEvent.h"
 #include "Engine/Event/Event.h"
 #include "Engine/Event/KeyEvent.h"
 #include "Engine/Event/MouseEvent.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Knoth {
 	static bool _GLFWInitialized = false;
@@ -30,7 +29,7 @@ namespace Knoth {
 
 	void WindowsWindow::OnUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(_Window);
+		_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled) {
@@ -62,8 +61,8 @@ namespace Knoth {
 		_Window = glfwCreateWindow((int)props.Width, (int)props.Height, _Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_Window);
 
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		KNOTH_ASSERT(status, "Failed to initialize Glad!");
+		_Context = new OpenGLContext(_Window);
+		_Context->Init();
 
 		glfwSetWindowUserPointer(_Window, &_Data);
 		SetVSync(true);
